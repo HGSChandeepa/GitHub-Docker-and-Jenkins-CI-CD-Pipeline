@@ -1,6 +1,5 @@
 pipeline {
     agent any 
-   
     
     stages { 
         stage('SCM Checkout') {
@@ -18,11 +17,9 @@ pipeline {
         stage('Login to Docker Hub') {
             steps {
                 withCredentials([string(credentialsId: 'samin-docker', variable: 'samindocker')]) {
-   
-              script{
-                  bat'docker login -u adomicarts -p ${samindocker}'
-
-                  }
+                    script {
+                        bat "docker login -u adomicarts -p %samindocker%"
+                    }
                 }
             }
         }
