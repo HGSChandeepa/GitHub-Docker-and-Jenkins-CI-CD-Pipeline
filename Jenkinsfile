@@ -18,7 +18,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'samin-docker', variable: 'samindocker')]) {
                     script {
-                        bat "docker login -u adomicarts -p ${samindocker}"
+                        bat "docker login -u adomicarts -p %samindocker%"
                     }
                 }
             }
